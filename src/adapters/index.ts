@@ -44,7 +44,7 @@ app.use(jwtTokenAuth.validateToken);
 
 app.use('/', user);
 app.use('/driver', driver_router);
-app.use('/admin', admin_router);
+app.use('/admin', admin_router)
 
 setUpSocketIO()
 
