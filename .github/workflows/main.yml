@@ -23,18 +23,3 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
-  # deploy:
-  #   runs-on: ubuntu-20.04
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to AWS Elastic Beanstalk
-  #       uses: aws-actions/configure-aws-credentials@v1
-  #       with:
-  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #         aws-region: "your-aws-region"
-
-  #     - name: Deploy
-  #       run: |
-  #         eb create your-environment-name
