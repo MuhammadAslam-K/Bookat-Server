@@ -5,7 +5,7 @@ import scheduleRideUpdateQuery from "../../../adapters/data-access/repositories/
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys";
 import userRepositoryUpdateQuery from "../../../adapters/data-access/repositories/userRepository/userRepositoryUpdateQuery";
 import { handleError } from "../../errors/errorHandling";
-import { scheduleRideBookingData } from "../../interfaces/rides";
+import { ReScheduleRide, scheduleRideBookingData } from "../../interfaces/rides";
 
 
 
@@ -44,8 +44,11 @@ export default {
         try {
             const result = await scheduleRideGetQuery.getScheduledRidesById(data.rideId)
             if (result) {
-                result.pickUpDate = data.selectedDateTime
-                await scheduleRideSaveQuery.rescheduleTheRide(result)
+                const updatedResult: ReScheduleRide = {
+                    ...result.toObject(),
+                    pickUpDate: new Date(data.selectedDateTime),
+                };
+                await scheduleRideSaveQuery.rescheduleTheRide(updatedResult)
                 return true
             }
         } catch (error) {

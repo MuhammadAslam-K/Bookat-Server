@@ -11,6 +11,7 @@ import { startReminderCronJob } from "../frameworks/crone-job/reminderCronJob"
 import http from 'http'
 
 import { setUpSocketIO } from '../frameworks/socket-io/socket-io';
+import { Error } from 'mongoose';
 
 dotenv.config()
 
@@ -24,17 +25,6 @@ const server = http.createServer(app);
 
 const allowedOrigins = [process.env.FRONT_END];
 app.use(
-    // cors({
-    //     origin: function (origin: any, callback: any) {
-    //         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-    //             callback(null, true);
-    //         } else {
-    //             callback(new Error('Not allowed by CORS'));
-    //         }
-    //     },
-    //     credentials: true,
-    // }
-    // )
     cors({
         origin: "*",
         credentials: true
@@ -55,7 +45,7 @@ if (MONGO_URL) {
     connect(MONGO_URL).then(() => {
         server.listen(port, () => console.log(`Server started at http://localhost:${port}`));
         // startReminderCronJob()
-    }).catch((err) => {
+    }).catch((err: Error) => {
         console.error('MongoDB connection error:', err);
     });
 } else {

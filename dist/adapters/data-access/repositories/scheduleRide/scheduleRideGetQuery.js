@@ -3,7 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RideStatus = void 0;
 const scheduledRide_model_1 = __importDefault(require("../../models/scheduledRide-model"));
+var RideStatus;
+(function (RideStatus) {
+    RideStatus["Completed"] = "Completed";
+    RideStatus["Cancelled"] = "Cancelled";
+})(RideStatus || (exports.RideStatus = RideStatus = {}));
 exports.default = {
     getScheduledRidesById: async (rideId) => {
         try {
@@ -17,7 +23,7 @@ exports.default = {
         try {
             return await scheduledRide_model_1.default.find({
                 user_id: userID,
-                status: { $in: ["Completed", "Cancelled"] }
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
             })
                 .sort({ pickUpDate: 1 });
         }
@@ -81,7 +87,10 @@ exports.default = {
     },
     getScheduledRidesWithDriverId: async (driverId) => {
         try {
-            return await scheduledRide_model_1.default.find({ driver_id: driverId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 });
+            return await scheduledRide_model_1.default.find({
+                driver_id: driverId,
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
+            }).sort({ date: -1 });
         }
         catch (error) {
             throw new Error(error.message);

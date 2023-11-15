@@ -43,8 +43,11 @@ exports.default = {
         try {
             const result = await scheduleRideGetQuery_1.default.getScheduledRidesById(data.rideId);
             if (result) {
-                result.pickUpDate = data.selectedDateTime;
-                await scheduleRideSaveQuery_1.default.rescheduleTheRide(result);
+                const updatedResult = {
+                    ...result.toObject(),
+                    pickUpDate: new Date(data.selectedDateTime),
+                };
+                await scheduleRideSaveQuery_1.default.rescheduleTheRide(updatedResult);
                 return true;
             }
         }

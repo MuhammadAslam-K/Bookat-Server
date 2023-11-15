@@ -1,5 +1,6 @@
 import { ObjectId } from "mongoose"
 import RideSchema from "../../models/quickRide-model"
+import { RideStatus } from "../scheduleRide/scheduleRideGetQuery"
 
 
 export default {
@@ -13,7 +14,10 @@ export default {
 
     getRideWithUserId: async (userId: string) => {
         try {
-            return await RideSchema.find({ user_id: userId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 })
+            return await RideSchema.find({
+                user_id: userId,
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
+            }).sort({ date: -1 })
         } catch (error) {
             throw new Error((error as Error).message)
         }
@@ -21,7 +25,10 @@ export default {
 
     getRideDetailsByDriverId: async (driverId: string) => {
         try {
-            return await RideSchema.find({ driver_id: driverId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 })
+            return await RideSchema.find({
+                driver_id: driverId,
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
+            }).sort({ date: -1 })
         } catch (error) {
             throw new Error((error as Error).message)
         }

@@ -69,7 +69,7 @@ export default {
                 }
                 else {
                     const token = encryptionDecryption.createToken(driverExist[0]._id as ObjectId, "driver", "5h");
-                    let response: { driverId: any, vehicleType: string, token: string, document?: boolean, vehicle?: boolean, driver?: boolean };
+                    let response: { driverId: string | unknown, vehicleType: string, token: string, document?: boolean, vehicle?: boolean, driver?: boolean };
                     const vehicleType = driverExist[0].vehicleDocuments.vehicleType
 
                     if (driverExist[0].driver.driverDocuments) {

@@ -30,7 +30,6 @@ exports.default = {
         }
     },
     rescheduleTheRide: async (data) => {
-        console.log("data", data);
         try {
             const ride = new scheduledRide_model_1.default({
                 user_id: data.user_id,

@@ -38,15 +38,15 @@ const setUpSocketIO = () => {
         console.log('connected:', socket.id);
         socket.on("confirmRide", (data) => {
             console.log("ride confirm", data);
-            userLat = data.latitude;
-            userLon = data.longitude;
-            userVehicleType = data.vehicle;
+            userLat = data.userLat;
+            userLon = data.userLon;
+            userVehicleType = data.userVehicleType;
             userId = data.userId;
-            userFromLocation = data.fromLocation;
-            userToLocation = data.toLocation;
+            userFromLocation = data.userFromLocation;
+            userToLocation = data.userToLocation;
             amount = data.amount;
-            rideDistance = data.distance;
-            rideDuration = data.duration;
+            rideDistance = data.rideDistance;
+            rideDuration = data.rideDuration;
             fromLocationLat = data.fromLocationLat;
             fromLocationLong = data.fromLocationLong;
             toLocationLat = data.toLocationLat;
@@ -74,9 +74,6 @@ const setUpSocketIO = () => {
                     processedDriverIds.add(driverId);
                 }
             }
-            // } else {
-            //     console.log(102)
-            // }
         });
         // Emit nearby drivers one by one at regular intervals
         const emitNearbyDrivers = () => {
