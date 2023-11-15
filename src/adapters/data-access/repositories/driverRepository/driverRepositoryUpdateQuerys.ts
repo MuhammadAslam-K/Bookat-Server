@@ -1,8 +1,8 @@
 import { ObjectId } from "mongoose"
 import DriverSchema from "../../models/driver-model"
-import { walletDetails } from "../../../../business/useCase/userUseCase/userRegistrationUseCase"
-import { driverInfo, vehicleInfo } from "../../../../business/useCase/driverUseCase/driverRegistrationUsecase"
-import { profileUpdate } from "../../../../business/useCase/driverUseCase/driverProfileUseCase"
+import { walletDetails } from "../../../../business/interfaces/comman"
+import { driverInfo, vehicleInfo } from "../../../../business/interfaces/driver"
+import { profileUpdate } from "../../../../business/interfaces/driver"
 
 export default {
     addAmountInWallet: async (details: walletDetails, driverId: ObjectId) => {

@@ -1,33 +1,5 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-interface WalletTransaction {
-    date: Date;
-    details: string;
-    amount: number;
-    status: string;
-}
-
-interface Wallet {
-    balance: number;
-    transactions: WalletTransaction[];
-}
-
-interface RideDetails {
-    completedRides: number;
-    cancelledRides: number;
-}
-
-export interface IUser extends Document {
-    name: string;
-    mobile?: string;
-    email: string;
-    password?: string;
-    refrel: string;
-    block: boolean;
-    joinedAt: Date;
-    wallet: Wallet;
-    RideDetails: RideDetails;
-}
 
 const userSchema: Schema = new Schema({
     name: {
@@ -91,6 +63,6 @@ const userSchema: Schema = new Schema({
     },
 });
 
-const UserSchema = mongoose.model<IUser>("user", userSchema);
+const UserSchema = mongoose.model("user", userSchema);
 
 export default UserSchema;

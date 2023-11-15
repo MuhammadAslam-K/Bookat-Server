@@ -1,5 +1,5 @@
 import { ObjectId } from "mongoose";
-import { scheduleRideBookingData } from "../../../../business/useCase/userUseCase/userScheduleRideUseCase";
+import { scheduleRideBookingData } from "../../../../business/interfaces/rides";
 import ScheduleRideSchema from "../../models/scheduledRide-model";
 import { handleError } from "../../../../business/errors/errorHandling";
 

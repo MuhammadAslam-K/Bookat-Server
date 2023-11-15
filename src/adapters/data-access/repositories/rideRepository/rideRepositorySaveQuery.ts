@@ -1,21 +1,7 @@
 import RideSchema from "../../models/quickRide-model"
+import { rideData } from "../../../../business/interfaces/rides"
 
 
-export interface rideData {
-    driverId: any;
-    userId: any;
-    fromLocationLat: any;
-    fromLocationLong: any;
-    toLocationLat: any;
-    toLocationLong: any;
-    userFromLocation: any;
-    userToLocation: any;
-    driverLatitude: any;
-    driverLongitude: any;
-    rideDistance: any;
-    userVehicleType: string
-    amount: any
-}
 
 export default {
     saveRideInfo: async (data: rideData) => {

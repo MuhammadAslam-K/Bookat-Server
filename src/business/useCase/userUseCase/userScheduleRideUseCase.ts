@@ -5,20 +5,8 @@ import scheduleRideUpdateQuery from "../../../adapters/data-access/repositories/
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys";
 import userRepositoryUpdateQuery from "../../../adapters/data-access/repositories/userRepository/userRepositoryUpdateQuery";
 import { handleError } from "../../errors/errorHandling";
+import { scheduleRideBookingData } from "../../interfaces/rides";
 
-export interface scheduleRideBookingData {
-    vehicle: string;
-    amount: string;
-    fromLocation: string;
-    toLocation: string;
-    distance: string;
-    duration: number;
-    fromLocationLat: number;
-    fromLocationLong: number;
-    toLocationLat: number;
-    toLocationLong: number;
-    selectedDateTime: string;
-}
 
 
 export default {

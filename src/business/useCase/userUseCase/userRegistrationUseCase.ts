@@ -5,26 +5,9 @@ import userRepositorySaveQuery from '../../../adapters/data-access/repositories/
 import encryptionDecryption from "../../shared/utilities/encryptionDecryption";
 import { refferalCode } from "../../shared/utilities/refrelCode";
 import { handleError } from '../../errors/errorHandling';
+import { signupData, userGoogleSignUp } from '../../interfaces/comman';
+import { walletDetails } from '../../interfaces/comman';
 
-export interface signupData {
-    name: string,
-    email: string,
-    mobile: string,
-    password: string,
-    refrelCode: string
-}
-
-export interface userGoogleSignUp {
-    name: string,
-    email: string,
-}
-
-export interface walletDetails {
-    date: number,
-    details: string,
-    amount: number,
-    status: string
-}
 
 export default {
     registerUser: async (data: signupData) => {

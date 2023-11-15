@@ -3,26 +3,8 @@ import driverRepositoryGetQuerys from "../../../adapters/data-access/repositorie
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys";
 import { handleError } from "../../errors/errorHandling";
 import cabRepositoryUpdateQuery from "../../../adapters/data-access/repositories/cabRepository/cabRepositoryUpdateQuery";
-
-export interface driverInfo {
-    aadharId: string,
-    drivingLicenseId: string,
-    address: string,
-    aadharImageUrl: string,
-    licenseImageUrl: string,
-    driverImageUrl: string
-}
-
-export interface vehicleInfo {
-    registrationId: string,
-    rcImageUrl: string,
-    vehicleModel: string,
-    maxPersons: string,
-    vehicleType: string,
-    vehicleImageUrl1: string,
-    vehicleImageUrl2: string
-}
-
+import { driverInfo } from "../../interfaces/driver";
+import { vehicleInfo } from "../../interfaces/driver";
 
 export default {
 

@@ -3,13 +3,8 @@ import { calculateDistance } from "./socket-ioHelper";
 import driverRideUseCase from "../../business/useCase/driverUseCase/driverRideUseCase";
 import { ObjectId } from "mongoose";
 import chatUseCase from "../../business/useCase/chat-useCase/chat-useCase";
+import { DriverData } from "../../business/interfaces/driver";
 
-interface DriverData {
-    latitude: string;
-    longitude: string;
-    driverId: ObjectId;
-    vehicleType: string;
-}
 
 // / / / / /USER / / / / /
 let userLat: string

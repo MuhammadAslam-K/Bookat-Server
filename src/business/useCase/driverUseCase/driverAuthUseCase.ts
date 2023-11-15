@@ -1,8 +1,8 @@
 import { ObjectId } from "mongoose";
 import bcryptPassword from "../../shared/utilities/encryptionDecryption";
 import { refferalCode } from "../../shared/utilities/refrelCode";
-import { signupData } from "../userUseCase/userRegistrationUseCase"
-import { walletDetails } from "../userUseCase/userRegistrationUseCase";
+import { signupData } from "../../interfaces/comman";
+import { walletDetails } from "../../interfaces/comman";
 
 import driverRepositoryGetQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryGetQuerys"
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys";

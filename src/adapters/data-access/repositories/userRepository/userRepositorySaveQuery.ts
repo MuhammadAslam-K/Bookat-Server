@@ -1,5 +1,5 @@
 import UserSchema from "../../models/user-model"
-import { signupData, userGoogleSignUp } from "../../../../business/useCase/userUseCase/userRegistrationUseCase"
+import { signupData, userGoogleSignUp } from "../../../../business/interfaces/comman"
 
 export default {
     saveUser: async (data: signupData | userGoogleSignUp, refferalCode: string) => {

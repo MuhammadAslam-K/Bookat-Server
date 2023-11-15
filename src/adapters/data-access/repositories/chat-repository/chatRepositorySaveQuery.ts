@@ -1,4 +1,4 @@
-import { chat } from "../../../../business/useCase/chat-useCase/chat-useCase";
+import { chat } from "../../../../business/interfaces/comman";
 import ChatSchema from "../../models/chat";
 
 

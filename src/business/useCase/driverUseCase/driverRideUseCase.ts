@@ -1,11 +1,12 @@
 import { ObjectId } from 'mongoose';
 import userRepositoryGetQuery from '../../../adapters/data-access/repositories/userRepository/userRepositoryGetQuery';
-import rideRepositorySaveQuery, { rideData } from '../../../adapters/data-access/repositories/rideRepository/rideRepositorySaveQuery';
+import rideRepositorySaveQuery from '../../../adapters/data-access/repositories/rideRepository/rideRepositorySaveQuery';
 import rideRepositoryGetQuery from '../../../adapters/data-access/repositories/rideRepository/rideRepositoryGetQuery';
 import driverRepositoryGetQuerys from '../../../adapters/data-access/repositories/driverRepository/driverRepositoryGetQuerys';
 import driverRepositoryUpdateQuerys from '../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys';
 import scheduleRideGetQuery from '../../../adapters/data-access/repositories/scheduleRide/scheduleRideGetQuery';
 import { handleError } from '../../errors/errorHandling';
+import { rideData } from '../../interfaces/rides';
 
 export default {
     getUser: async (userId: string) => {

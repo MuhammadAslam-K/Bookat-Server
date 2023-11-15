@@ -1,10 +1,5 @@
 
-interface Driver {
-    latitude: string;
-    longitude: string;
-    driverId: string;
-    vehicleType: string;
-}
+import { Driver } from "../../business/interfaces/driver";
 
 
 export const calculateDistance = (

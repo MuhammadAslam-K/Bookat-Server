@@ -1,7 +1,7 @@
 import { ObjectId } from "mongoose"
 import UserSchema from "../../models/user-model"
-import { walletDetails } from "../../../../business/useCase/userUseCase/userRegistrationUseCase"
-import { profileUpdate } from "../../../../business/useCase/driverUseCase/driverProfileUseCase"
+import { walletDetails } from "../../../../business/interfaces/comman"
+import { profileUpdate } from "../../../../business/interfaces/driver"
 
 export default {
     addAmountInWalletWithUserId: async (details: walletDetails, userId: ObjectId) => {
