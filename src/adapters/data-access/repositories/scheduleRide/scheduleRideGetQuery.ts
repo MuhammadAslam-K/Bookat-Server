@@ -1,6 +1,11 @@
 import { ObjectId } from "mongoose";
-
 import ScheduleRideSchema from "../../models/scheduledRide-model";
+
+export enum RideStatus {
+    Completed = "Completed",
+    Cancelled = "Cancelled",
+}
+
 
 export default {
 
@@ -16,7 +21,7 @@ export default {
         try {
             return await ScheduleRideSchema.find({
                 user_id: userID,
-                status: { $in: ["Completed", "Cancelled"] }
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
             })
                 .sort({ pickUpDate: 1 })
         } catch (error) {
@@ -81,7 +86,11 @@ export default {
 
     getScheduledRidesWithDriverId: async (driverId: string) => {
         try {
-            return await ScheduleRideSchema.find({ driver_id: driverId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 })
+            return await ScheduleRideSchema.find({
+                driver_id: driverId,
+                status: { $in: [RideStatus.Completed, RideStatus.Cancelled] }
+            }).sort({ date: -1 })
+
         } catch (error) {
             throw new Error((error as Error).message);
 

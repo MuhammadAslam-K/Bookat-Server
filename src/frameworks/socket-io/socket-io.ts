@@ -3,13 +3,9 @@ import { calculateDistance } from "./socket-ioHelper";
 import driverRideUseCase from "../../business/useCase/driverUseCase/driverRideUseCase";
 import { ObjectId } from "mongoose";
 import chatUseCase from "../../business/useCase/chat-useCase/chat-useCase";
+import { DriverData } from "../../business/interfaces/driver";
+import { rideConfirm } from "../../business/interfaces/rides";
 
-interface DriverData {
-    latitude: string;
-    longitude: string;
-    driverId: ObjectId;
-    vehicleType: string;
-}
 
 // / / / / /USER / / / / /
 let userLat: string
@@ -48,22 +44,22 @@ export const setUpSocketIO = (): void => {
 
         console.log('connected:', socket.id);
 
-        socket.on("confirmRide", (data: any) => {
+        socket.on("confirmRide", (data) => {
             console.log("ride confirm", data)
 
-            userLat = data.latitude
-            userLon = data.longitude
-            userVehicleType = data.vehicle
-            userId = data.userId
-            userFromLocation = data.fromLocation
-            userToLocation = data.toLocation
-            amount = data.amount
-            rideDistance = data.distance
-            rideDuration = data.duration
-            fromLocationLat = data.fromLocationLat
-            fromLocationLong = data.fromLocationLong
-            toLocationLat = data.toLocationLat
-            toLocationLong = data.toLocationLong
+            userLat = data.userLat;
+            userLon = data.userLon;
+            userVehicleType = data.userVehicleType;
+            userId = data.userId;
+            userFromLocation = data.userFromLocation;
+            userToLocation = data.userToLocation;
+            amount = data.amount;
+            rideDistance = data.rideDistance;
+            rideDuration = data.rideDuration;
+            fromLocationLat = data.fromLocationLat;
+            fromLocationLong = data.fromLocationLong;
+            toLocationLat = data.toLocationLat;
+            toLocationLong = data.toLocationLong;
 
             io.emit("driverlocationUpdate")
         })
@@ -99,9 +95,6 @@ export const setUpSocketIO = (): void => {
                     processedDriverIds.add(driverId)
                 }
             }
-            // } else {
-            //     console.log(102)
-            // }
         });
 
         // Emit nearby drivers one by one at regular intervals

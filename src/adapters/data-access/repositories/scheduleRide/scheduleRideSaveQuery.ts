@@ -1,5 +1,5 @@
 import { ObjectId } from "mongoose";
-import { scheduleRideBookingData } from "../../../../business/useCase/userUseCase/userScheduleRideUseCase";
+import { ReScheduleRide, scheduleRideBookingData } from "../../../../business/interfaces/rides";
 import ScheduleRideSchema from "../../models/scheduledRide-model";
 import { handleError } from "../../../../business/errors/errorHandling";
 
@@ -28,8 +28,7 @@ export default {
         }
     },
 
-    rescheduleTheRide: async (data: any) => {
-        console.log("data", data)
+    rescheduleTheRide: async (data: ReScheduleRide) => {
         try {
             const ride = new ScheduleRideSchema({
                 user_id: data.user_id,

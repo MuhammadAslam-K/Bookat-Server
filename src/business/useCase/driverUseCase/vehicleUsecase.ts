@@ -1,4 +1,4 @@
-import { vehicleInfo } from './driverRegistrationUsecase';
+import { vehicleInfo } from "../../interfaces/driver";
 import { Types, ObjectId, Schema } from "mongoose";
 import driverRepositoryGetQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryGetQuerys";
 import driverRepositoryUpdateQuerys from '../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys';

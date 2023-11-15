@@ -2,19 +2,8 @@ import { ObjectId } from "mongoose"
 import driverRepositoryGetQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryGetQuerys"
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys"
 import { handleError } from "../../errors/errorHandling"
+import { profileUpdate } from "../../interfaces/driver"
 
-export interface profileUpdate {
-    name: string,
-    email: string,
-    mobile: string,
-    aadharId: string,
-    licenseId: string,
-    aadharImageUrl: string,
-    licenseImageUrl: string,
-    driverImageUrl: string,
-    // vehicleVerified: string,
-    // driverVerified: string,
-}
 
 export default {
     getDriverProfile: async (driverId: ObjectId) => {

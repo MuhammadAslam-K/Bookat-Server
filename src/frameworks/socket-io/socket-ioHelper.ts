@@ -1,10 +1,5 @@
 
-interface Driver {
-    latitude: string;
-    longitude: string;
-    driverId: string;
-    vehicleType: string;
-}
+import { Driver } from "../../business/interfaces/driver";
 
 
 export const calculateDistance = (
@@ -18,7 +13,7 @@ export const calculateDistance = (
 ) => {
 
     if (userVehicle === driverVehicle) {
-        const deg2rad = (deg: any) => deg * (Math.PI / 180);
+        const deg2rad = (deg: number) => deg * (Math.PI / 180);
         driverLatitude = deg2rad(driverLatitude);
         driverLongitude = deg2rad(driverLongitude);
         userLatitude = deg2rad(userLatitude);

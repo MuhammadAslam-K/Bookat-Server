@@ -1,5 +1,5 @@
 import DriverSchema from "../../models/driver-model"
-import { signupData } from "../../../../business/useCase/userUseCase/userRegistrationUseCase"
+import { signupData } from "../../../../business/interfaces/comman"
 
 export default {
     saveDriver: async (data: signupData, refferalCode: string) => {

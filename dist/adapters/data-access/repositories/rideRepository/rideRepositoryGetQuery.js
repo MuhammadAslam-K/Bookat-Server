@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const quickRide_model_1 = __importDefault(require("../../models/quickRide-model"));
+const scheduleRideGetQuery_1 = require("../scheduleRide/scheduleRideGetQuery");
 exports.default = {
     findRideWithId: async (rideId) => {
         try {
@@ -15,7 +16,10 @@ exports.default = {
     },
     getRideWithUserId: async (userId) => {
         try {
-            return await quickRide_model_1.default.find({ user_id: userId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 });
+            return await quickRide_model_1.default.find({
+                user_id: userId,
+                status: { $in: [scheduleRideGetQuery_1.RideStatus.Completed, scheduleRideGetQuery_1.RideStatus.Cancelled] }
+            }).sort({ date: -1 });
         }
         catch (error) {
             throw new Error(error.message);
@@ -23,7 +27,10 @@ exports.default = {
     },
     getRideDetailsByDriverId: async (driverId) => {
         try {
-            return await quickRide_model_1.default.find({ driver_id: driverId, status: { $in: ["Completed", "Cancelled"] } }).sort({ date: -1 });
+            return await quickRide_model_1.default.find({
+                driver_id: driverId,
+                status: { $in: [scheduleRideGetQuery_1.RideStatus.Completed, scheduleRideGetQuery_1.RideStatus.Cancelled] }
+            }).sort({ date: -1 });
         }
         catch (error) {
             throw new Error(error.message);

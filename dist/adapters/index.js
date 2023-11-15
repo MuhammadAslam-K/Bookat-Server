@@ -44,19 +44,7 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json({ limit: '10mb' }));
 const server = http_1.default.createServer(app);
 const allowedOrigins = [process.env.FRONT_END];
-app.use(
-// cors({
-//     origin: function (origin: any, callback: any) {
-//         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     },
-//     credentials: true,
-// }
-// )
-(0, cors_1.default)({
+app.use((0, cors_1.default)({
     origin: "*",
     credentials: true
 }));

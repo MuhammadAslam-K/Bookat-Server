@@ -1,8 +1,7 @@
-import { profileUpdate } from "../driverUseCase/driverProfileUseCase";
+import { profileUpdate } from "../../interfaces/driver";
 import userRepositoryUpdateQuery from "../../../adapters/data-access/repositories/userRepository/userRepositoryUpdateQuery";
 import { ObjectId } from "mongoose";
 import userRepositoryGetQuery from "../../../adapters/data-access/repositories/userRepository/userRepositoryGetQuery";
-import { IUser } from "../../../adapters/data-access/models/user-model";
 import { handleError } from "../../errors/errorHandling";
 
 

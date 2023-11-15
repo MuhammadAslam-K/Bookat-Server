@@ -1,15 +1,8 @@
 import chatRepositoryGetQuery from "../../../adapters/data-access/repositories/chat-repository/chatRepositoryGetQuery"
 import chatRepositorySaveQuery from "../../../adapters/data-access/repositories/chat-repository/chatRepositorySaveQuery"
 import chatRepositoryUpdateQuery from "../../../adapters/data-access/repositories/chat-repository/chatRepositoryUpdateQuery"
+import { chat } from "../../interfaces/comman"
 
-export interface chat {
-    rideId: string,
-    message: {
-        sender: string
-        content: string
-        timestamp: string
-    }
-}
 
 
 

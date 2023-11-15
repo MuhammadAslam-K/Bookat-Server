@@ -1,8 +1,8 @@
 import { ObjectId } from "mongoose";
 import bcryptPassword from "../../shared/utilities/encryptionDecryption";
 import { refferalCode } from "../../shared/utilities/refrelCode";
-import { signupData } from "../userUseCase/userRegistrationUseCase"
-import { walletDetails } from "../userUseCase/userRegistrationUseCase";
+import { signupData } from "../../interfaces/comman";
+import { walletDetails } from "../../interfaces/comman";
 
 import driverRepositoryGetQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryGetQuerys"
 import driverRepositoryUpdateQuerys from "../../../adapters/data-access/repositories/driverRepository/driverRepositoryUpdateQuerys";
@@ -69,7 +69,7 @@ export default {
                 }
                 else {
                     const token = encryptionDecryption.createToken(driverExist[0]._id as ObjectId, "driver", "5h");
-                    let response: { driverId: any, vehicleType: string, token: string, document?: boolean, vehicle?: boolean, driver?: boolean };
+                    let response: { driverId: string | unknown, vehicleType: string, token: string, document?: boolean, vehicle?: boolean, driver?: boolean };
                     const vehicleType = driverExist[0].vehicleDocuments.vehicleType
 
                     if (driverExist[0].driver.driverDocuments) {
