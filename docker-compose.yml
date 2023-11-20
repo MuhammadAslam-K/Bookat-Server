@@ -8,16 +8,9 @@ services:
     ports:
       - "8001:8001"
       - "8000:8000"
-    depends_on:
-      - database
     env_file:
       - .env
     volumes:
       - .:/app  
       - /app/node_modules
       - /app/dist
-
-  database:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
