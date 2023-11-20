@@ -1,5 +1,5 @@
 # Stage 1: Build Node.js app
-FROM node:18.18.2
+FROM node:18.18.2-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
