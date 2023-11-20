@@ -10,11 +10,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Read Docker credentials from file
+        id: read_credentials
+        run: |
+          echo "::set-output name=username::$(grep 'DOCKER_USERNAME' PROD_ENV_FILE | cut -d '=' -f2)"
+          echo "::set-output name=password::$(grep 'DOCKER_PASSWORD' PROD_ENV_FILE | cut -d '=' -f2)"
+
       - name: Login Dockerhub
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u $DOCKER_USERNAME --password-stdin
+          DOCKER_USERNAME: ${{ steps.read_credentials.outputs.username }}
+          DOCKER_PASSWORD: ${{ steps.read_credentials.outputs.password }}
+        run: |
+          echo "{\"auths\":{\"https://index.docker.io/v1/\":{\"auth\":\"$(echo -n $DOCKER_USERNAME:$DOCKER_PASSWORD | base64)\"}}}" > ~/config.json
+          docker login --config ~/config.json
 
       - name: Build the Docker image
         run: docker build -t bookatserver .
