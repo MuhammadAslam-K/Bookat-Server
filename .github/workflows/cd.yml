@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Pull Docker image
-        run: docker pull muhammadaslam2003/bookatserver:latest
+        run: sudo docker pull muhammadaslam2003/bookatserver:latest
 
       - name: Delete older Containers
-        run: docker rm -f bookatserver-container || true
+        run: sudo docker rm -f bookatserver-container || true
 
       - name: Run Docker Container
-        run: docker run -d -p 8000:8000 --name bookatserver-container muhammadaslam2003/bookatserver
+        run: sudo docker run -d -p 8000:8000 --name bookatserver-container muhammadaslam2003/bookatserver
