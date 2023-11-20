@@ -22,4 +22,4 @@ jobs:
 
       - run: |
           touch .env
-          echo "${{secrets.PORD_ENV_FILE}}" > .env
+          echo "${{secrets.PROD_ENV_FILE}}" > .env
