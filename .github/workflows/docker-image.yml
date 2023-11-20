@@ -4,22 +4,20 @@ on:
   push:
     branches: [ "main" ]
 
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Login Dockerhub
-      env: 
-        DOCKER_USERNAME: ${{secrets.PROD_ENV_FILE.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.PROD_ENV_FILE.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USERNAME -P $DOCKER_PASSWORD
-      
-    - name: Build the Docker image
-      run: docker build -t bookatserver .
-    - name: Push to Dockerhub
-      run: docker push muhammadaslam2003/bookatserver:latest
+      - uses: actions/checkout@v3
+      - name: Login Dockerhub
+        env:
+          DOCKER_USERNAME: ${{ secrets.PROD_ENV_FILE.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.PROD_ENV_FILE.DOCKER_PASSWORD }}
+        run: echo "${{ secrets.PROD_ENV_FILE.DOCKER_PASSWORD }}" | docker login -u $DOCKER_USERNAME --password-stdin
+
+      - name: Build the Docker image
+        run: docker build -t bookatserver .
+
+      - name: Push to Dockerhub
+        run: docker push muhammadaslam2003/bookatserver:latest
