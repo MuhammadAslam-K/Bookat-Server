@@ -36,7 +36,7 @@ app.use('/', user);
 app.use('/driver', driver_router);
 app.use('/admin', admin_router)
 
-setUpSocketIO()
+setUpSocketIO(server)
 
 
 
@@ -44,10 +44,11 @@ setUpSocketIO()
 if (MONGO_URL) {
     connect(MONGO_URL).then(() => {
         server.listen(port, () => console.log(`Server started at http://localhost:${port}`));
-        // startReminderCronJob()
+        startReminderCronJob()
     }).catch((err: Error) => {
         console.error('MongoDB connection error:', err);
     });
 } else {
     console.log('Cannot access the URL from environment');
 }
+

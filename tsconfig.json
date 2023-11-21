@@ -110,13 +110,3 @@
     "**/*.spec.ts"
   ]
 }
-// environment:
-//       - MONGO_URL = mongodb://127.0.0.1:27017/bookat
-//       - SOCKET_PORT = 8000
-//       - FRONT_END = http://localhost:5173/
-//       - SECRET_KEY = JkChTjrw8N4z2D83h3geiNM7qfRtcZRU0isSgNgq
-//       - TWILIO_ACCOUNT_SID = AC27fb374a44e424ecfde5a06eaba2dcbe
-//       - TWILIO_AUTH_TOKEN = 5ee893f8676252916bb99606eef7d122
-//       - TWILIO_VERIFY_SID = VA36b0a90b67572c230c2b3798c0e8048b
-//       - NODEMAILER_USER_EMAIL = kamuhammadaslam@gmail.com
-//       - NODEMAILER_PASS = iwnkdbowaiicdwpf
