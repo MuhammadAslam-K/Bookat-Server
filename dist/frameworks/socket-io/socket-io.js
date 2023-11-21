@@ -22,7 +22,7 @@ let fromLocationLat;
 let fromLocationLong;
 let toLocationLat;
 let toLocationLong;
-// / / / / /DRIVER / / / / / 
+// / / / / /DRIVER / / /
 let driverLatitude;
 let driverLongitude;
 let driverId;
