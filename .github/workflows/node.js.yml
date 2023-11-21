@@ -23,3 +23,5 @@ jobs:
       - run: |
           touch .env
           echo "${{secrets.PROD_ENV_FILE}}" > .env
+          npm install
+          pm2 restart 0

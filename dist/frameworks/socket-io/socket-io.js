@@ -27,8 +27,8 @@ let driverLatitude;
 let driverLongitude;
 let driverId;
 let driverVehicleType;
-const setUpSocketIO = () => {
-    const io = new socket_io_1.Server(8000, {
+const setUpSocketIO = (server) => {
+    const io = new socket_io_1.Server(server, {
         cors: {
             origin: "*",
             credentials: true

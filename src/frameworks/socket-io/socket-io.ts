@@ -28,8 +28,8 @@ let driverLongitude: string
 let driverId: ObjectId
 let driverVehicleType: string
 
-export const setUpSocketIO = (): void => {
-    const io: SocketIOServer = new SocketIOServer(8000, {
+export const setUpSocketIO = (server: any): void => {
+    const io: SocketIOServer = new SocketIOServer(server, {
         cors: {
             origin: "*",
             credentials: true
