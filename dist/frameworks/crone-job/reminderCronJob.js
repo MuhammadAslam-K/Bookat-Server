@@ -13,14 +13,12 @@ async function startReminderCronJob() {
         const pickupTime = new Date(currentTime.getTime() + 10 * 60000);
         const rides = await scheduledRide_model_1.default.find({ pickUpDate: { $lte: pickupTime } }).populate("user_id");
         for (const data of rides) {
-            console.log(data);
             const info = {
                 to: data.user_id.email,
                 subject: "Pickup Reminder",
                 message: "Your pickup time is in 10 minutes. Please be ready!",
             };
-            const result = await nodeMailer_1.default.rideRemainderEmail(info);
-            console.log("cron job result", result);
+            await nodeMailer_1.default.rideRemainderEmail(info);
         }
     });
 }
