@@ -22,7 +22,7 @@ let fromLocationLong: string
 let toLocationLat: string
 let toLocationLong: string
 
-// / / / / /DRIVER / / / / / 
+// / / / / /DRIVER / / /
 let driverLatitude: string
 let driverLongitude: string
 let driverId: ObjectId
