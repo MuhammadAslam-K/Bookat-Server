@@ -7,6 +7,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "concurrently \"tsc -w\" \"nodemon dist/adapters/index.js\"",
+        "server-start": "concurrently \"pm2 start 'tsc -w' --name ts-compiler\" \"pm2 start 'nodemon dist/adapters/index.js' --name node-app\"",
         "build": "tsc"
     },
     "keywords": [],
