@@ -38,9 +38,9 @@ const setUpSocketIO = (server) => {
         console.log('connected:', socket.id);
         socket.on("confirmRide", (data) => {
             console.log("ride confirm", data);
-            userLat = data.userLat;
-            userLon = data.userLon;
-            userVehicleType = data.userVehicleType;
+            userLat = data.latitude;
+            userLon = data.longitude;
+            userVehicleType = data.vehicle;
             userId = data.userId;
             userFromLocation = data.userFromLocation;
             userToLocation = data.userToLocation;

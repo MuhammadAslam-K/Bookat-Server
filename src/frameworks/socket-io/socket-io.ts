@@ -47,9 +47,9 @@ export const setUpSocketIO = (server: any): void => {
         socket.on("confirmRide", (data) => {
             console.log("ride confirm", data)
 
-            userLat = data.userLat;
-            userLon = data.userLon;
-            userVehicleType = data.userVehicleType;
+            userLat = data.latitude;
+            userLon = data.longitude;
+            userVehicleType = data.vehicle;
             userId = data.userId;
             userFromLocation = data.userFromLocation;
             userToLocation = data.userToLocation;
@@ -82,7 +82,6 @@ export const setUpSocketIO = (server: any): void => {
                 parseFloat(driverLongitude),
                 driverVehicleType,
             );
-
             console.log("distance user and driver vehicle type :", distance, userVehicleType, driverVehicleType)
             // if (distance != false) {
             if (distance >= -2 && !processedDriverIds.has(driverId)) {

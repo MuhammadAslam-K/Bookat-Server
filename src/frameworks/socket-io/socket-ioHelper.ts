@@ -12,6 +12,7 @@ export const calculateDistance = (
 
 ) => {
 
+    console.log(userLatitude, userLongitude, userVehicle, driverLatitude, driverLongitude, driverVehicle)
     if (userVehicle === driverVehicle) {
         const deg2rad = (deg: number) => deg * (Math.PI / 180);
         driverLatitude = deg2rad(driverLatitude);

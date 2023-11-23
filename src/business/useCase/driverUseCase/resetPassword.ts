@@ -19,7 +19,7 @@ export default {
                 const data = {
                     to: email,
                     subject: "Password Reset Link",
-                    message: `http://localhost:5173/driver/resetpassword/?id=${encryptedEmail}`
+                    message: `https://d1gppqsleu7ahf.cloudfront.net/driver/resetpassword/?id=${encryptedEmail}`
                 }
 
                 return await nodeMailer.sendLink(data)
