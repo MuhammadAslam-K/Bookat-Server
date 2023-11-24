@@ -72,18 +72,18 @@ export default {
                     let response: { driverId: string | unknown, vehicleType: string, token: string, document?: boolean, vehicle?: boolean, driver?: boolean };
                     const vehicleType = driverExist[0].vehicleDocuments.vehicleType
 
-                    if (driverExist[0].driver.driverDocuments) {
+                    // if (driverExist[0].driver.driverDocuments) {
 
-                        if (driverExist[0].vehicle.vehicleDocuments) {
-                            response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: true, vehicle: true };
-                        }
-                        else {
-                            response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: true, vehicle: false };
-                        }
-                    }
-                    else {
-                        response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: false, vehicle: false };
-                    }
+                    //     if (driverExist[0].vehicle.vehicleDocuments) {
+                    //         response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: true, vehicle: true };
+                    //     }
+                    //     else {
+                    //         response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: true, vehicle: false };
+                    //     }
+                    // }
+                    // else {
+                    response = { driverId: driverExist[0]._id, vehicleType: vehicleType, token, document: driverExist[0].driver.driverDocuments, vehicle: driverExist[0].vehicle.vehicleDocuments };
+                    // }
 
                     return response;
 

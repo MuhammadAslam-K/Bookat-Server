@@ -11,12 +11,12 @@ exports.default = {
         try {
             const checkChatExists = await chatRepositoryGetQuery_1.default.getChatByRideId(data.rideId);
             if (checkChatExists) {
-                await chatRepositoryUpdateQuery_1.default.updateChat(checkChatExists._id, data.message);
+                return await chatRepositoryUpdateQuery_1.default.updateChat(checkChatExists._id, data.message);
             }
             else {
-                await chatRepositorySaveQuery_1.default.createNewChat(data);
+                return await chatRepositorySaveQuery_1.default.createNewChat(data);
             }
-            return true;
+            // return true
         }
         catch (error) {
             console.log(error);
