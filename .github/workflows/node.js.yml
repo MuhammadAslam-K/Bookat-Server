@@ -1,4 +1,4 @@
-name: Node.js ci
+name: Node.js CI
 
 on:
   push:
@@ -26,6 +26,3 @@ jobs:
 
           echo "Installing npm dependencies..."
           npm install
-
-          echo "Restarting PM2 server..."
-          npm run server-start
